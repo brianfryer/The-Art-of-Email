@@ -83,17 +83,17 @@ header {
  *  Navigation elements  *
  * ===================== */
 
-nav {
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
-  .menu {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    > li {
-      @include inline-block;
-    }
+  > li {
+    @include inline-block;
   }
+}
+
+nav {
 
   &#primary {
 
@@ -101,11 +101,11 @@ nav {
 
       > li {
 
-        > a {
-
-          &:hover {}
-        }
       }
+    }
+    a {
+
+      &:hover {}
     }
   }
 
@@ -115,10 +115,11 @@ nav {
 
       > li {
 
-        > a {
-
-        }
       }
+    }
+    a {
+
+      &:hover {}
     }
   }
 }

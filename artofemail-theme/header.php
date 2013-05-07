@@ -12,7 +12,7 @@
     <title><?php the_title_attribute() ?> &laquo; <?php bloginfo('name'); ?></title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo bloginfo('template_url'); ?>/img/favicon.gif" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo bloginfo('template_url'); ?>/img/favicon.png" />
 
     <!-- BEGIN wp_head() output -->
     <?php wp_head(); ?>
@@ -27,10 +27,7 @@
 
     <div class="header-container">
         <header class="wrapper">
-            <h1>
-                <strong id="logo"><a href="<?php home_url('/'); ?>"><?php bloginfo('name'); ?></a></strong>
-                <small> <?php bloginfo('description'); ?></small>
-            </h1>
+            <h1><a id="logo" href="<?php home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'primary-nav',

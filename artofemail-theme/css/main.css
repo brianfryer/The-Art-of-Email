@@ -1921,7 +1921,7 @@ body { font-family: Verdana, Geneva, sans-serif; background-color: #eed78d; }
 .wrapper:after { clear: both; }
 
 /* =========================================================================== * Navigation elements  * ===================== */
-nav .menu { margin: 0; padding: 0; list-style: none; }
-nav .menu > li { display: inline-block; vertical-align: baseline; zoom: 1; *display: inline; *vertical-align: auto; }
+.menu { margin: 0; padding: 0; list-style: none; }
+.menu > li { display: inline-block; vertical-align: baseline; zoom: 1; *display: inline; *vertical-align: auto; }
 
 /* =========================================================================== * "ID"-level elements  * ===================== */
