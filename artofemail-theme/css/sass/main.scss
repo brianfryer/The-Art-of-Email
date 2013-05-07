@@ -1,0 +1,134 @@
+// SETTINGS & VARIABLE OVERRIDES
+$fontAwesomePath:   "../../fonts/fontawesome";
+
+// IMPORTS
+@import 'normalize';
+@import 'bourbon/bourbon';
+@import 'grid-settings';
+@import 'neat/neat';
+@import 'blend-modes';
+@import 'foundation/foundation';
+@import 'font-awesome';
+
+// FONTS & COLORS
+$serif: 'garamond-premier-pro', serif;
+$sans: $verdana;
+$light-blue: #5A8A9C;
+$dark-blue: #5A8A9C;
+$light-brown: #CEB480;
+$dark-brown: #A67F40;
+$yellow: #EDD381;
+
+/* =========================================================================== *
+ *  Top-level elements  *
+ * ==================== */
+
+body {
+  font-family: $sans;
+  background-color: tint($yellow, 10%);
+}
+
+h1, h2, h3, h4, h5, h6 {}
+
+a {
+
+  &:hover {}
+  &:visited {}
+}
+
+hr {
+  @extend .clearboth;
+}
+
+
+/* =========================================================================== *
+ *  Class-level elements  *
+ * ====================== */
+
+.floatleft  { float: left; }
+.floatright { float: right; }
+
+.clearboth  { clear: both; }
+
+
+/* =========================================================================== *
+*  Structural elements  *
+* ===================== */
+
+.wrapper { @include outer-container; }
+
+.header-container {}
+
+header {
+
+  h1 {}
+  nav {}
+}
+
+.content-container {
+
+  > section {}
+}
+
+.footer-container {}
+
+> footer {
+
+  > section {}
+  nav {}
+}
+
+
+/* =========================================================================== *
+ *  Navigation elements  *
+ * ===================== */
+
+nav {
+
+  .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    > li {
+      @include inline-block;
+    }
+  }
+
+  &#primary {
+
+    > ul {
+
+      > li {
+
+        > a {
+
+          &:hover {}
+        }
+      }
+    }
+  }
+
+  &#bottom {
+
+    > ul {
+
+      > li {
+
+        > a {
+
+        }
+      }
+    }
+  }
+}
+
+
+/* =========================================================================== *
+ *  "ID"-level elements  *
+ * ===================== */
+
+#logo {
+
+  > a {}
+}
