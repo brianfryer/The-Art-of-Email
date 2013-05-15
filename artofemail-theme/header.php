@@ -28,7 +28,7 @@
 
     <header class="masthead">
         <div class="wrapper">
-            <h1><a id="logo" href="<?php bloginfo('wpurl'); ?>"><?php bloginfo('name'); ?></a></h1>
+            <h1><a id="logo" href="<?php bloginfo('wpurl'); if ( is_user_logged_in() ) { echo '/videos/'; } ?>"><?php bloginfo('name'); ?></a></h1>
             <?php if ( !is_user_logged_in() ) {
             wp_nav_menu(array(
                 'theme_location' => 'members-nav',
@@ -49,6 +49,4 @@
     </section>
 
     <section class="main-content">
-        <aside class="announcements">
-            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("announcements") ) : endif; ?>
-        </aside>
+        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("announcements") ) : endif; ?>

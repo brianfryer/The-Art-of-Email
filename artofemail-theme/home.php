@@ -1,31 +1,24 @@
-<?php get_header(); ?>
+<?php
+get_header();
+the_post();
+the_content();
+$categoriesArgs = array(
+    'orderby'      => 'id',
+    'order'        => 'ASC',
+    'parent'       => 0 // only main categories; no sub-categories
+);
+$categories = get_categories($categoriesArgs);
+foreach ($categories as $cat) { ?>
 
-<div class="content-container">
-        <section class="wrapper">
+    <div class="category">
+        <img src="<?php echo bloginfo('template_url').'/'.$cat->category_nicename.'.png'; ?>" />
+        <h2><a class="tiny button" href="<?php echo bloginfo('wpurl').'/'.$cat->slug; ?>"><?php echo $cat->name ?></a></h2>
+        <ul class="meta-data">
+            <li><?php echo $cat->count; ?> videos</li>
+            <li><a class="tiny button" href="<?php echo bloginfo('wpurl').'/'.$cat->slug; ?>">Watch Now</a></li>
+        </ul>
+        <hr />
+        <p><?php echo $cat->category_description; ?></p>
+    </div>
 
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <article>
-                <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-                <?php the_content(); ?>
-                <span class="full-post">
-                    <a class="btn" title="<?php the_title(); ?>" href="<?php the_permalink();?>">View full post &raquo;</a
-                </span>
-            </article>
-            <?php endwhile; else: ?>
-            <article>
-                <h2><?php _e('Sorry, there are no posts to display here.'); ?></h2>
-                <img id="nothing-to-do-here" height="682px" width="960px" src="<?php echo bloginfo('template_url'); ?>/img/nothing-to-do-here.png" />
-            </article>
-            <?php endif; ?>
-
-            <nav class="pagination">
-                <ul>
-                    <li><?php next_posts_link('&laquo; Previous Posts') ?></li>
-                    <li><?php previous_posts_link('Newer Posts &raquo;') ?></li>
-                </ul>
-            </nav><!-- .pagination -->
-
-        </section>
-    </div><!-- .content-container -->
-
-<?php get_footer(); ?>
+<?php } get_sidebar(); get_footer(); ?>

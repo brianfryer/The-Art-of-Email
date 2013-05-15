@@ -8,6 +8,6 @@
                 <?php the_content(); ?>
             </article>
         </div>
-    </section><!-- .content-container -->
+    </section>
 
 <?php get_footer(); ?>

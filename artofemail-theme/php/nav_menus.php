@@ -8,7 +8,8 @@ if (!function_exists('wartofemail_register_menus')) {
     function artofemail_register_menus() {
         register_nav_menus(
             array(
-                'members-nav' => __( 'Members Navigation' )
+                'members-nav' => __( 'Members Navigation' ),
+                'bottom-nav'  => __( 'Bottom Navigation' )
             )
         );
     }

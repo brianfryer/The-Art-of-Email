@@ -1,9 +1,6 @@
 <?php get_header(); ?>
 
     <section class="main-content">
-        <aside class="announcements">
-            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("announcements") ) : endif; ?>
-        </aside>
         <div class="wrapper">
             <?php the_post(); ?>
             <article>
