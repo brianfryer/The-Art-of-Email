@@ -1,13 +1,9 @@
-// SETTINGS & VARIABLE OVERRIDES
-$fontAwesomePath:   "../../fonts/fontawesome";
-
 // IMPORTS
 @import 'normalize';
 @import 'bourbon/bourbon';
-@import 'grid-settings';
+@import 'settings';
 @import 'neat/neat';
 @import 'blend-modes';
-@import 'foundation/foundation';
 @import 'font-awesome';
 
 // FONTS & COLORS
@@ -25,10 +21,11 @@ $yellow: #EDD381;
 
 body {
   font-family: $sans;
-  background-color: tint($yellow, 10%);
 }
 
-h1, h2, h3, h4, h5, h6 {}
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serif;
+}
 
 a {
 
@@ -50,12 +47,27 @@ hr {
 
 .clearboth  { clear: both; }
 
+.button,
+a.button {
+  @include inline-block;
+  @include pad(em(3));
+}
+// MemberPress product links should look like buttons
+.mepr_product_link {
+  @extend .button;
+}
 
 /* =========================================================================== *
 *  Structural elements  *
 * ===================== */
 
-.wrapper { @include outer-container; }
+.wrapper {
+  @include outer-container;
+
+  &.skinny {
+    max-width: em(960);
+  }
+}
 
 .header-container {}
 

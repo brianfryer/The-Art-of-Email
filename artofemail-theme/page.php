@@ -1,15 +1,7 @@
-<?php get_header(); ?>
+<?php
+get_header();
+the_post();
+the_content();
+get_sidebar();
+get_footer();
 
-    <div class="content-container">
-        <section class="wrapper">
-
-            <?php the_post(); ?>
-            <article>
-                <h1><?php the_title(); ?></h1>
-                <?php the_content(); ?>
-            </article>
-
-        </section>
-    </div><!-- .content-container -->
-
-<?php get_footer(); ?>

@@ -20,23 +20,35 @@
 
 </head>
 <body <?php body_class($class); ?>>
-
-<!--[if lt IE 7]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<!--[if lt IE 8]>
+<div class="chromeframe">
+    <p class="text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+</div>
 <![endif]-->
 
-    <div class="header-container">
-        <header class="wrapper">
-            <h1><a id="logo" href="<?php home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
-            <?php
+    <header class="masthead">
+        <div class="wrapper">
+            <h1><a id="logo" href="<?php bloginfo('wpurl'); ?>"><?php bloginfo('name'); ?></a></h1>
+            <?php if ( !is_user_logged_in() ) {
             wp_nav_menu(array(
-                'theme_location' => 'primary-nav',
+                'theme_location' => 'members-nav',
                 'container'      => 'nav',
-                'container_id'   => 'primary',
+                'container_id'   => 'members-nav',
                 'menu_class'     => 'menu',
                 'menu_id'        => FALSE,
-            ));
-            ?>
-            <hr />
-        </header>
-    </div><!-- .header-container -->
+            )); ?>
+            <a class="button" href="/login/" title="Login">Login</a>
+            <?php } else { ?>
+            <a class="button" href="<?php echo wp_logout_url( home_url() ); ?>" title="Logout">Logout</a>
+            <?php } ?>
+        </div>
+    </header>
+
+    <section class="breadcrumbs">
+        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("breadcrumbs") ) : endif; ?>
+    </section>
+
+    <section class="main-content">
+        <aside class="announcements">
+            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("announcements") ) : endif; ?>
+        </aside>

@@ -114,8 +114,9 @@ require([ 'jquery'
     , 'foundation/modernizr.foundation'
     , 'foundation/app'
 ], function($) {
-
     $(document).ready(function() {
+
+
 
     });
 });
