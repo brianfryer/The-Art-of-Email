@@ -1,6 +1,6 @@
         </section>
         <?php get_sidebar(); ?>
-    </div>
+    </article>
     <footer class="bottom">
         <div class="wrapper">
             <p id="copyright" class="floatleft">&copy; <?php echo date('Y') ?> <?php echo bloginfo('name'); ?></p>
