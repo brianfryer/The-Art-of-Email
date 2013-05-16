@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, maximum-scale=1.0">
 
-    <title><?php the_title_attribute() ?> &laquo; <?php bloginfo('name'); ?></title>
+    <title><?php if ( !is_404() ) { the_title_attribute(); } else { echo '404: Page not found'; }  ?> | <?php bloginfo('name'); ?></title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo bloginfo('template_url'); ?>/img/favicon.png" />
@@ -27,26 +27,26 @@
 <![endif]-->
 
     <header class="masthead">
-        <div class="wrapper">
-            <h1><a id="logo" href="<?php bloginfo('wpurl'); if ( is_user_logged_in() ) { echo '/videos/'; } ?>"><?php bloginfo('name'); ?></a></h1>
-            <?php if ( !is_user_logged_in() ) {
+        <div class="wrapper<?php if ( is_front_page() ) { ?> skinny<?php } ?>">
+            <h1 id="logo"><a href="<?php bloginfo('wpurl'); if ( is_user_logged_in() ) { echo '/videos/'; } ?>"><?php bloginfo('name'); ?></a></h1>
+            <?php if ( is_user_logged_in() ) {
             wp_nav_menu(array(
                 'theme_location' => 'members-nav',
                 'container'      => 'nav',
-                'container_id'   => 'members-nav',
+                'container_id'   => 'primary-nav',
                 'menu_class'     => 'menu',
                 'menu_id'        => FALSE,
-            )); ?>
-            <a class="button" href="/login/" title="Login">Login</a>
-            <?php } else { ?>
-            <a class="button" href="<?php echo wp_logout_url( home_url() ); ?>" title="Logout">Logout</a>
-            <?php } ?>
+            )); } else {
+            wp_nav_menu(array(
+                'theme_location' => 'public-nav',
+                'container'      => 'nav',
+                'container_id'   => 'primary-nav',
+                'menu_class'     => 'menu',
+                'menu_id'        => FALSE,
+            )); } ?>
         </div>
     </header>
 
-    <section class="breadcrumbs">
-        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("breadcrumbs") ) : endif; ?>
-    </section>
-
-    <section class="main-content">
-        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("announcements") ) : endif; ?>
+    <div class="wrapper<?php if ( is_front_page() ) { ?> skinny<?php } ?>">
+        <section class="main-content">
+            <?php if ( !is_front_page() ) { if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("announcements") ) : endif; } ?>

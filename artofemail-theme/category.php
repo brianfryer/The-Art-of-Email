@@ -1,13 +1,18 @@
-<?php get_header(); ?>
+<?php
+get_header();
+if ( have_posts() ) {
+    // reverse default sort (chronological order instead of reverse chron. order)
+    query_posts($query_string."&orderby=date&order=ASC");
+    while ( have_posts() ) : the_post(); ?>
 
-    <section class="main-content">
-        <div class="wrapper">
-            <?php the_post(); ?>
-            <article>
-                <h1><?php the_title(); ?></h1>
-                <?php the_content(); ?>
-            </article>
-        </div>
-    </section>
+    <article class="content">
+        <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+    </article>
 
-    <?php get_sidebar(); get_footer(); ?>
+    <?php endwhile; } else { ?>
+
+    <article class="content">
+        <h2 class="post-title"><?php _e('Sorry, there are no posts to display here.'); ?></h2>
+    </article>
+
+<?php } get_footer();

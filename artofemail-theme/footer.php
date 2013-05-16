@@ -1,12 +1,13 @@
-    </section>
-    <footer id="footer">
+        </section>
+        <?php get_sidebar(); ?>
+    </div>
+    <footer class="bottom">
         <div class="wrapper">
-            <p id="copyright" class="floatleft">&copy; <?php echo date('Y') . ' ' . bloginfo('name'); ?></p>
+            <p id="copyright" class="floatleft">&copy; <?php echo date('Y') ?> <?php echo bloginfo('name'); ?></p>
             <?php
             wp_nav_menu(array(
                 'theme_location'  => 'bottom-nav',
                 'container'       => 'nav',
-                'container_class' => 'floatleft',
                 'container_id'    => 'bottom-nav',
                 'menu_class'      => 'menu',
                 'menu_id'         => FALSE,

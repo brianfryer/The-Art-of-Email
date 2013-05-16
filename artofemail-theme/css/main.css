@@ -1348,17 +1348,105 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "garamond-premier-pro", serif; }
 
+a {
+  color: #48c6ed; }
+
+/* =========================================================================== *
+*  Structural elements  *
+* ===================== */
+.wrapper {
+  *zoom: 1;
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; }
+  .wrapper:before, .wrapper:after {
+    content: " ";
+    display: table; }
+  .wrapper:after {
+    clear: both; }
+  .wrapper.skinny {
+    max-width: 60em; }
+
+header.masthead, section, footer.bottom {
+  padding: 0.375em 0.75em; }
+
+header.masthead {
+  background-image: -webkit-linear-gradient( #333333, black);
+  background-image: linear-gradient( #333333, black);
+  border-top: 1px solid black; }
+  header.masthead #logo {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    header.masthead #logo:last-child {
+      margin-right: 0; }
+  header.masthead #primary-nav {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-top: 1.3125em; }
+    header.masthead #primary-nav:last-child {
+      margin-right: 0; }
+    header.masthead #primary-nav > .menu > li {
+      margin: 0 0 0 15px; }
+    header.masthead #primary-nav a {
+      text-decoration: none; }
+
+section {
+  margin-bottom: -99999px;
+  padding-bottom: 99999px; }
+  section.main-content {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 74.41059%; }
+    section.main-content:last-child {
+      margin-right: 0; }
+  section.sidebar {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    margin-right: 0;
+    background-color: #5a8a9c; }
+    section.sidebar:last-child {
+      margin-right: 0; }
+
+footer.bottom {
+  *zoom: 1; }
+  footer.bottom:before, footer.bottom:after {
+    content: " ";
+    display: table; }
+  footer.bottom:after {
+    clear: both; }
+  footer.bottom #bottom-nav > .menu > li {
+    margin: 0 0 0 15px; }
+
 /* =========================================================================== *
  *  Class-level elements  *
  * ====================== */
-.floatleft {
+i[class^='icon'] {
+  text-decoration: none; }
+
+.floatleft, header.masthead #primary-nav > .menu > li, footer.bottom #bottom-nav, footer.bottom #bottom-nav > .menu > li {
   float: left; }
 
-.floatright {
+.floatright, header.masthead #primary-nav > .menu {
   float: right; }
 
 .clearboth, hr {
   clear: both; }
+
+.text-small, header.masthead #primary-nav, footer.bottom #bottom-nav, #copyright, #brianfryer {
+  font-size: 0.75em; }
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
 
 .button, .mepr_product_link,
 a.button,
@@ -1371,35 +1459,19 @@ a.mepr_product_link {
   padding: 0.1875em; }
 
 /* =========================================================================== *
-*  Structural elements  *
-* ===================== */
-.wrapper {
-  *zoom: 1;
-  max-width: 80em;
-  margin-left: auto;
-  margin-right: auto; }
-  .wrapper:before, .wrapper:after {
-    content: " ";
-    display: table; }
-  .wrapper:after {
-    clear: both; }
-  .wrapper.skinny {
-    max-width: 60em; }
-
-/* =========================================================================== *
- *  Navigation elements  *
- * ===================== */
-.menu {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-  .menu > li {
-    display: inline-block;
-    vertical-align: baseline;
-    zoom: 1;
-    *display: inline;
-    *vertical-align: auto; }
-
-/* =========================================================================== *
  *  "ID"-level elements  *
  * ===================== */
+#logo {
+  margin: 0;
+  line-height: 1;
+  text-indent: -9999px; }
+  #logo > a {
+    display: block;
+    height: 48px;
+    width: 177px;
+    background-image: url("/wp-content/themes/artofemail-theme/img/artofemail-logo.png");
+    background-position: top left;
+    background-repeat: no-repeat; }
+
+#copyright, #brianfryer {
+  margin: 0; }

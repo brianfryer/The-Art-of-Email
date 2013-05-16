@@ -5,20 +5,26 @@ $category = get_the_category();
 <section class="sidebar">
     <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("main-sidebar") ) : endif ?>
     <hr />
+    <?php if ( !is_404() ) {?>
     <h1 class="page-title"><?php
-        // display category name for posts
         if ( is_single() ) {
+            // display category name for posts, categories
             echo $category->name;
-        }
-        // display parent name for pages
-        if ( is_page() ) {
+        } else if ( is_category() ) {
+            single_cat_title();
+        } else if ( is_page() ) {
+            // display parent name for pages
             echo empty( $post->post_parent ) ? get_the_title( $post->ID ) : get_the_title( $post->post_parent );
+        } else {
+            // fallback
+            the_title();
         }
         ?></h1>
     <hr />
+    <?php } ?>
     <nav class="sidebar-nav">
         <ul><?php
-            //
+            // display dashboard widgets
             if ( is_home() ) {
                 if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("dashboard-widgets") ) : endif;
             }
