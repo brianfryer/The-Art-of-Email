@@ -43,7 +43,7 @@ $category = get_the_category();
             // display list of pages belonging to same parent (children)
             if ( is_page() ) {
                 $childArgs = array(
-                    'post_parent' => $post->ID,
+                    'post_parent' => artofemail_get_ancestor(),
                     'post_type' => 'page',
                     'posts_per_page' => '-1',
                     'orderby' => 'menu_order',
