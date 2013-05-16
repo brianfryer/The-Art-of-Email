@@ -79,17 +79,27 @@ header.masthead {
 }
 
 article.main {
-  position: relative; // for positioning the sidebar
+  position: relative;          // for positioning the sidebar
   background-color: white;
   > section {
     @extend %parentContainers;
     margin-bottom: -99999px;
     padding-bottom: 99999px;
+    &.announcements {
+      position: relative;     // for z-index
+      z-index: 7;             // display below .sidebar
+      min-width: em(960);
+      padding-right: em(312); // width of .sidebar + %parentContainers padding
+    }
     &.content {
+      position: relative;     // for z-index
+      z-index: 9;             // display above .sidebar
+      min-width: em(960);
       padding-right: em(312); // width of .sidebar + %parentContainers padding
     }
     &.sidebar {
-      position: absolute;
+      position: absolute;     // for z-index
+      z-index: 8;             // display below .content
       top: 0;
       right: 0;
       width: em(300);
