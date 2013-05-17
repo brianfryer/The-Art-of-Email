@@ -5,10 +5,13 @@ the_content();
 $categoriesArgs = array(
     'orderby'      => 'id',
     'order'        => 'ASC',
+    'hierarchical' => false,
     'parent'       => 0 // only main categories; no sub-categories
 );
 $categories = get_categories($categoriesArgs);
-foreach ($categories as $cat) { ?>
+foreach ($categories as $cat) {
+
+ ?>
 
     <div class="category">
         <img src="<?php echo bloginfo('template_url').'/'.$cat->category_nicename.'.png'; ?>" />

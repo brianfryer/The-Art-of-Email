@@ -58,23 +58,23 @@ header.masthead {
   @include background-image( linear-gradient(#333, black) );
   color: white;
   border-top: 1px solid black;
-  #logo {
-    @include span-columns(4);
+}
+#logo {
+  @include span-columns(4);
+}
+#primary-nav { // primary navigation
+  @extend .text-small;
+  @include span-columns(8);
+  margin-top: em(21);
+  > .menu {
+    @extend .floatright;
+    > li {
+      @extend .floatleft;
+      margin: 0 0 0 em(25);
+    }
   }
-  #primary-nav { // primary navigation
-    @extend .text-small;
-    @include span-columns(8);
-    margin-top: em(21);
-    > .menu {
-      @extend .floatright;
-      > li {
-        @extend .floatleft;
-        margin: 0 0 0 em(25);
-      }
-    }
-    a {
-      text-decoration: none;
-    }
+  a {
+    text-decoration: none;
   }
 }
 
@@ -161,6 +161,13 @@ a.button {
 .mepr_product_link {
   @extend .button;
 }
+// Previous/Next links under the videos should look like buttons
+.previous-video-button,
+.next-video-button {
+  > a {
+    @extend .button;
+  }
+}
 
 .announcement-widget {
   @extend %roundedCorners;
@@ -183,6 +190,11 @@ a.button {
 /* =========================================================================== *
  *  "ID"-level elements  *
  * ===================== */
+
+// Fix the extra <p> that WordPress inserts with the video player
+p + .jwplayer {
+  margin-top: -1em
+}
 
 #logo {
   margin: 0;

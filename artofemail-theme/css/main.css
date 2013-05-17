@@ -1377,25 +1377,27 @@ header.masthead {
   background-image: linear-gradient( #333333, black);
   color: white;
   border-top: 1px solid black; }
-  header.masthead #logo {
-    display: block;
-    float: left;
-    margin-right: 2.35765%;
-    width: 31.76157%; }
-    header.masthead #logo:last-child {
-      margin-right: 0; }
-  header.masthead #primary-nav {
-    display: block;
-    float: left;
-    margin-right: 2.35765%;
-    width: 65.88078%;
-    margin-top: 1.3125em; }
-    header.masthead #primary-nav:last-child {
-      margin-right: 0; }
-    header.masthead #primary-nav > .menu > li {
-      margin: 0 0 0 1.5625em; }
-    header.masthead #primary-nav a {
-      text-decoration: none; }
+
+#logo {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  #logo:last-child {
+    margin-right: 0; }
+
+#primary-nav {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-top: 1.3125em; }
+  #primary-nav:last-child {
+    margin-right: 0; }
+  #primary-nav > .menu > li {
+    margin: 0 0 0 1.5625em; }
+  #primary-nav a {
+    text-decoration: none; }
 
 article.main {
   position: relative;
@@ -1443,16 +1445,16 @@ footer.bottom {
 i[class^='icon'] {
   text-decoration: none; }
 
-.floatleft, header.masthead #primary-nav > .menu > li, footer.bottom #bottom-nav, footer.bottom #bottom-nav > .menu > li {
+.floatleft, #primary-nav > .menu > li, footer.bottom #bottom-nav, footer.bottom #bottom-nav > .menu > li {
   float: left; }
 
-.floatright, header.masthead #primary-nav > .menu {
+.floatright, #primary-nav > .menu {
   float: right; }
 
 .clearboth, hr {
   clear: both; }
 
-.text-small, header.masthead #primary-nav, footer.bottom #bottom-nav, .announcement-widget, #copyright, #brianfryer {
+.text-small, #primary-nav, footer.bottom #bottom-nav, .announcement-widget, #copyright, #brianfryer {
   font-size: 0.75em; }
 
 .menu {
@@ -1460,9 +1462,12 @@ i[class^='icon'] {
   padding: 0;
   list-style: none; }
 
-.button, .mepr_product_link,
+.button, .mepr_product_link, .previous-video-button > a,
+.next-video-button > a,
 a.button,
-a.mepr_product_link {
+a.mepr_product_link,
+.previous-video-button > a,
+.next-video-button > a {
   display: inline-block;
   vertical-align: baseline;
   zoom: 1;
@@ -1485,6 +1490,9 @@ a.mepr_product_link {
 /* =========================================================================== *
  *  "ID"-level elements  *
  * ===================== */
+p + .jwplayer {
+  margin-top: -1em; }
+
 #logo {
   margin: 0;
   line-height: 1;
