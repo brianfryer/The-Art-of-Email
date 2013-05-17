@@ -79,27 +79,25 @@ header.masthead {
 }
 
 article.main {
-  position: relative;          // for positioning the sidebar
+  position: relative;           // for positioning the sidebar
   background-color: white;
   > section {
     @extend %parentContainers;
     margin-bottom: -99999px;
     padding-bottom: 99999px;
     &.announcements {
-      position: relative;     // for z-index
-      z-index: 7;             // display below .sidebar
       min-width: em(960);
-      padding-right: em(312); // width of .sidebar + %parentContainers padding
+      padding-right: em(312);  // width of .sidebar + %parentContainers padding
     }
     &.content {
-      position: relative;     // for z-index
-      z-index: 9;             // display above .sidebar
       min-width: em(960);
-      padding-right: em(312); // width of .sidebar + %parentContainers padding
+      padding-right: em(312);  // width of .sidebar + %parentContainers padding
+      &.homepage {
+        padding-right: em(12); // no .sidebar on the homepage, so no large padding
+      }
     }
     &.sidebar {
-      position: absolute;     // for z-index
-      z-index: 8;             // display below .content
+      position: absolute;
       top: 0;
       right: 0;
       width: em(300);
@@ -108,6 +106,10 @@ article.main {
       background-color: blend-multiply($dark-blue, $dark-blue);
     }
   }
+}
+
+nav.sidebar-nav {
+
 }
 
 footer.bottom {
@@ -145,6 +147,9 @@ i[class^='icon'] {
 .clearboth  { clear: both; }
 
 .text-small { font-size: em(12); }
+.text-large { font-size: em(20); }
+
+.hide { display: none; }
 
 .menu {
   margin: 0;
@@ -173,12 +178,28 @@ a.button {
   @extend %roundedCorners;
   @extend %parentContainers;
   @extend .text-small;
+  position: relative; // to display the .close properly
   margin-top: em(6);
   color: shade(blend-multiply($yellow, $yellow), 25%);
   border: 2px dashed tint(blend-multiply($yellow, $yellow), 25%);
   background-color: tint($yellow, 50%);
   p {
     margin: .5em 0;
+  }
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    padding: 5px 4px 4px;
+    color: blend-multiply($yellow, $yellow);
+    font-size: em(24);
+    font-weight: bold;
+    line-height: 0;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: shade(blend-multiply($yellow, $yellow), 25%);
+    }
   }
 }
 .announcement-title {

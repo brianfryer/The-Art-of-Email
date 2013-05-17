@@ -9,8 +9,8 @@ register_sidebar(array(
     'id'            => 'announcements',
     'name'          => 'Announcements',
     'class'         => 'announcements',
-    'before_widget' => '<div class="announcement-widget">',
-    'after_widget'  => '</div>',
+    'before_widget' => '<div data-alert class="announcement-widget alert-box">',
+    'after_widget'  => '<a href="#" class="close">&times;</a></div>',
     'before_title'  => '<h3 class="announcement-title">',
     'after_title'   => '</h3>'
 ));

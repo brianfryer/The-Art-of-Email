@@ -1,8 +1,8 @@
         </section>
-        <?php get_sidebar(); ?>
+        <?php if ( !is_front_page() ) { get_sidebar(); } ?>
     </article>
     <footer class="bottom">
-        <div class="wrapper">
+        <div class="wrapper<?php if ( is_front_page() ) { ?> skinny<?php } ?>">
             <p id="copyright" class="floatleft">&copy; <?php echo date('Y') ?> <?php echo bloginfo('name'); ?></p>
             <?php
             wp_nav_menu(array(

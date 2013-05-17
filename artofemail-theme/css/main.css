@@ -455,7 +455,7 @@ li [class*=" icon-"], .nav li [class^="icon-"],
 
 ul.icons {
   list-style-type: none;
-  text-indent: -.75em; }
+  text-indent: -0.75em; }
   ul.icons li [class^="icon-"],
   ul.icons li [class*=" icon-"] {
     width: .75em; }
@@ -1357,7 +1357,7 @@ a {
 * ===================== */
 .wrapper {
   *zoom: 1;
-  max-width: 80em;
+  max-width: 100em;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden; }
@@ -1406,18 +1406,15 @@ article.main {
     margin-bottom: -99999px;
     padding-bottom: 99999px; }
     article.main > section.announcements {
-      position: relative;
-      z-index: 7;
       min-width: 60em;
       padding-right: 19.5em; }
     article.main > section.content {
-      position: relative;
-      z-index: 9;
       min-width: 60em;
       padding-right: 19.5em; }
+      article.main > section.content.homepage {
+        padding-right: 0.75em; }
     article.main > section.sidebar {
       position: absolute;
-      z-index: 8;
       top: 0;
       right: 0;
       width: 18.75em;
@@ -1457,6 +1454,12 @@ i[class^='icon'] {
 .text-small, #primary-nav, footer.bottom #bottom-nav, .announcement-widget, #copyright, #brianfryer {
   font-size: 0.75em; }
 
+.text-large {
+  font-size: 1.25em; }
+
+.hide {
+  display: none; }
+
 .menu {
   margin: 0;
   padding: 0;
@@ -1476,12 +1479,25 @@ a.mepr_product_link,
   padding: 0.1875em; }
 
 .announcement-widget {
+  position: relative;
   margin-top: 0.375em;
   color: #a58230;
   border: 2px dashed #e4c270;
   background-color: #f6e9c0; }
   .announcement-widget p {
     margin: .5em 0; }
+  .announcement-widget .close {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    padding: 5px 4px 4px;
+    color: #dcae41;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 0;
+    text-decoration: none; }
+    .announcement-widget .close:hover, .announcement-widget .close:focus {
+      color: #a58230; }
 
 .announcement-title {
   margin: 0;

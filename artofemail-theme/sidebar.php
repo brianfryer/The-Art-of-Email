@@ -8,9 +8,10 @@ $category = get_the_category();
     <?php if ( !is_404() ) {?>
     <h1 class="page-title"><?php
         if ( is_single() ) {
-            // display category name for posts, categories
-            echo $category->name;
+            // display category name for posts
+            echo $category[0]->name;
         } else if ( is_category() ) {
+            // display category name for category pages
             single_cat_title();
         } else if ( is_page() ) {
             // display parent name for pages
@@ -23,7 +24,7 @@ $category = get_the_category();
     <hr />
     <?php } ?>
     <nav class="sidebar-nav">
-        <ul><?php
+        <ul class="menu"><?php
             // display dashboard widgets
             if ( is_home() ) {
                 if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("dashboard-widgets") ) : endif;

@@ -47,7 +47,7 @@
         </div>
     </header>
 
-    <article class="main wrapper<?php if ( is_front_page() ) { ?> skinny<?php } ?>">
+    <article class="main wrapper<?php if ( is_front_page() ) { ?> skinny homepage<?php } ?>">
         <?php if ( !is_front_page() ) { ?>
         <section class="announcements">
             <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("announcements") ) : endif; ?>
