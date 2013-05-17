@@ -10,18 +10,18 @@ $categoriesArgs = array(
 );
 $categories = get_categories($categoriesArgs);
 foreach ($categories as $cat) {
-
- ?>
-
-    <div class="category">
-        <img src="<?php echo bloginfo('template_url').'/'.$cat->category_nicename.'.png'; ?>" />
-        <h2><a class="tiny button" href="<?php echo bloginfo('wpurl').'/'.$cat->slug; ?>"><?php echo $cat->name ?></a></h2>
-        <ul class="meta-data">
-            <li><?php echo $cat->count; ?> videos</li>
-            <li><a class="tiny button" href="<?php echo bloginfo('wpurl').'/'.$cat->slug; ?>">Watch Now</a></li>
+    // <?php echo bloginfo('template_url').'/img/'.$cat->category_nicename.'.png'; ?>
+    <h1 class="content-title"><?php echo $cat->name ?></h1>
+    <p><?php echo $cat->category_description; //print_r($cat) ?></p>
+    <nav class="video-list">
+        <ul class="menu"><?php
+        $videoArgs = array( 'cat' => $cat->cat_ID );
+        $videos = new WP_Query( $videoArgs );
+        while ( $videos->have_posts() ) : $videos->the_post(); ?>
+            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+        <?php endwhile; wp_reset_query(); ?>
         </ul>
-        <hr />
-        <p><?php echo $cat->category_description; ?></p>
-    </div>
+    </nav>
+    <hr />
 
 <?php } get_footer();

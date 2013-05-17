@@ -19,10 +19,10 @@ the_content(); ?>
         ) );?></li>
     </ul>
 </nav>
-<ul class="video-actions">
-    <li>Download Video (MP4)</li>
-    <li>Download Audio (MP3)</li>
-    <li>Download Transcript (PDF)</li>
+<ul class="menu video-actions">
+    <li><a href="<?php  ?>">Download Video <span class="tag">MP4</span></a></li>
+    <li><a href="">Download Audio <span class="tag">MP3</span></a></li>
+    <li><a href="">Download Transcript <span class="tag">PDF</span></a></li>
 </ul>
 <hr />
 <?php get_footer();

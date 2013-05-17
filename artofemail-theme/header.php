@@ -47,10 +47,10 @@
         </div>
     </header>
 
-    <article class="main wrapper<?php if ( is_front_page() ) { ?> skinny homepage<?php } ?>">
-        <?php if ( !is_front_page() ) { ?>
+    <article class="main wrapper<?php if ( is_front_page() ) { ?> skinny<?php } ?>">
+        <?php if ( !is_front_page() && is_user_logged_in() ) { ?>
         <section class="announcements">
             <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("announcements") ) : endif; ?>
         </section>
         <?php } ?>
-        <section class="content">
+        <section class="content<?php if ( is_front_page() ) { ?> homepage<?php } ?>">
